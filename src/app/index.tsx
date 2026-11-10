@@ -6,46 +6,34 @@ import {
   View,
 } from "react-native";
 
+import { Link } from "expo-router";
+
 export default function HomeScreen() {
   return (
     <ScrollView style={styles.container}>
-
       <View style={styles.header}>
-        <Text style={styles.greeting}>
-          Olá! 👋
-        </Text>
+        <Text style={styles.greeting}>Olá! 👋</Text>
 
-        <Text style={styles.title}>
-          O que deseja comer hoje?
-        </Text>
+        <Text style={styles.title}>O que deseja comer hoje?</Text>
       </View>
 
       <View style={styles.banner}>
-        <Text style={styles.offer}>
-          OFERTA ESPECIAL
-        </Text>
+        <Text style={styles.offer}>OFERTA ESPECIAL</Text>
 
-        <Text style={styles.bannerTitle}>
-          Hambúrguer + Bebida
-        </Text>
+        <Text style={styles.bannerTitle}>Hambúrguer + Bebida</Text>
 
         <Text style={styles.bannerText}>
           Uma combinação perfeita para seu pedido.
         </Text>
 
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>
-            Peça agora
-          </Text>
+          <Text style={styles.buttonText}>Peça agora</Text>
         </TouchableOpacity>
       </View>
 
-      <Text style={styles.sectionTitle}>
-        Categorias
-      </Text>
+      <Text style={styles.sectionTitle}>Categorias</Text>
 
       <View style={styles.categories}>
-
         <TouchableOpacity style={styles.category}>
           <Text style={styles.emoji}>🍔</Text>
           <Text>Burger</Text>
@@ -60,15 +48,12 @@ export default function HomeScreen() {
           <Text style={styles.emoji}>🥤</Text>
           <Text>Bebidas</Text>
         </TouchableOpacity>
-
       </View>
-
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: "#ffffff",
@@ -154,5 +139,9 @@ const styles = StyleSheet.create({
     fontSize: 30,
     marginBottom: 5,
   },
-
+    
+  links: {
+    marginTop: 30,
+    gap: 10,
+  },
 });
