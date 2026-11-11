@@ -1,147 +1,83 @@
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { router } from 'expo-router';
+import { cores } from '../constants/cores';
 
-import { Link } from "expo-router";
-
-export default function HomeScreen() {
+export default function Inicio() {
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.greeting}>Olá! 👋</Text>
+    <View style={styles.container}>
+      <StatusBar style="light" />
 
-        <Text style={styles.title}>O que deseja comer hoje?</Text>
+      {/* Logo (provisória) */}
+      <View style={styles.logo}>
+        <Text style={styles.logoTexto}>LOGO</Text>
       </View>
 
-      <View style={styles.banner}>
-        <Text style={styles.offer}>OFERTA ESPECIAL</Text>
+      <Text style={styles.titulo}>Sua Açaiteria</Text>
+      <Text style={styles.boasVindas}>
+        Bem-vindo! Monte seu açaí do jeito que você gosta.
+      </Text>
 
-        <Text style={styles.bannerTitle}>Hambúrguer + Bebida</Text>
-
-        <Text style={styles.bannerText}>
-          Uma combinação perfeita para seu pedido.
-        </Text>
-
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>Peça agora</Text>
-        </TouchableOpacity>
+      {/* Imagem principal (provisória) */}
+      <View style={styles.destaque}>
+        <Text style={styles.destaqueTexto}>foto do açaí</Text>
       </View>
 
-      <Text style={styles.sectionTitle}>Categorias</Text>
+      <TouchableOpacity
+        style={styles.botao}
+        activeOpacity={0.8}
+        onPress={() => router.push('/cardapio')}
+      >
+        <Text style={styles.botaoTexto}>Ver cardápio</Text>
+      </TouchableOpacity>
 
-      <View style={styles.categories}>
-        <TouchableOpacity style={styles.category}>
-          <Text style={styles.emoji}>🍔</Text>
-          <Text>Burger</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.category}>
-          <Text style={styles.emoji}>🍕</Text>
-          <Text>Pizza</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.category}>
-          <Text style={styles.emoji}>🥤</Text>
-          <Text>Bebidas</Text>
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
+      <Text style={styles.rodape}>Delivery • [seu horário]</Text>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ffffff",
-    paddingHorizontal: 20,
+    backgroundColor: cores.roxoEscuro,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 32,
+    gap: 20,
   },
-
-  header: {
-    marginTop: 50,
-    marginBottom: 25,
+  logo: {
+    width: 96,
+    height: 96,
+    borderRadius: 48,
+    backgroundColor: cores.lilas,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-
-  greeting: {
-    fontSize: 16,
-    color: "#666666",
+  logoTexto: { color: cores.roxoEscuro, fontWeight: 'bold' },
+  titulo: { fontSize: 40, fontWeight: 'bold', color: cores.branco },
+  boasVindas: {
+    fontSize: 17,
+    color: cores.lilas,
+    textAlign: 'center',
+    maxWidth: 280,
   },
-
-  title: {
-    fontSize: 28,
-    fontWeight: "bold",
-    marginTop: 5,
+  destaque: {
+    width: 220,
+    height: 220,
+    borderRadius: 110,
+    backgroundColor: '#3B1060',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-
-  banner: {
-    backgroundColor: "#FE8C00",
-    borderRadius: 20,
-    padding: 25,
+  destaqueTexto: { color: cores.lilas },
+  botao: {
+    backgroundColor: cores.lilas,
+    paddingVertical: 16,
+    borderRadius: 14,
+    width: '100%',
+    maxWidth: 300,
+    alignItems: 'center',
   },
-
-  offer: {
-    color: "#ffffff",
-    fontSize: 13,
-    fontWeight: "bold",
-  },
-
-  bannerTitle: {
-    color: "#ffffff",
-    fontSize: 25,
-    fontWeight: "bold",
-    marginTop: 8,
-  },
-
-  bannerText: {
-    color: "#ffffff",
-    fontSize: 15,
-    marginTop: 8,
-  },
-
-  button: {
-    backgroundColor: "#ffffff",
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 10,
-    marginTop: 20,
-    alignSelf: "flex-start",
-  },
-
-  buttonText: {
-    color: "#FE8C00",
-    fontWeight: "bold",
-  },
-
-  sectionTitle: {
-    fontSize: 22,
-    fontWeight: "bold",
-    marginTop: 30,
-    marginBottom: 15,
-  },
-
-  categories: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-
-  category: {
-    width: "30%",
-    backgroundColor: "#FFF3E6",
-    paddingVertical: 18,
-    borderRadius: 15,
-    alignItems: "center",
-  },
-
-  emoji: {
-    fontSize: 30,
-    marginBottom: 5,
-  },
-    
-  links: {
-    marginTop: 30,
-    gap: 10,
-  },
+  botaoTexto: { color: cores.roxoEscuro, fontSize: 17, fontWeight: 'bold' },
+  rodape: { color: cores.lilas, fontSize: 13 },
 });
